@@ -3,17 +3,14 @@ package com.example.movieClub.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "movies")
+@Table(name = "movies", indexes = {@Index(name = "idx_genre_name", columnList = "genre, name")})
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
